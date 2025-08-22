@@ -1,3 +1,4 @@
+//不要随便改，可能会引发一些原因不明的问题
 #ifndef BGAME_H
 #define BGAME_H
 
@@ -29,17 +30,3 @@ void __setbkcolor(rgbc color){
 #define setbkcolor __setbkcolor
 
 #endif
-
-/*
-example code:
-    1.mouse
-    while(true){
-        if(L_MOUSE){
-            while(L_MOUSE);
-            GetCursorPos(&p);
-            if(p.x>=50&&p.x<=650&&p.y>=50&&p.y<=650){
-                ...
-            }
-        }
-    }
-*/
