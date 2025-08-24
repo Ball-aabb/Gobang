@@ -26,9 +26,9 @@ int main(){
     setfillcolor(BLACK);
     settextcolor(BLACK);
     settextstyle(100,50,"msyh");
-    outtextxy(200,0,"Îå×ÓÆå");
+    outtextxy(200,0,"äº”å­æ£‹");
     settextstyle(50,25,"msyh");
-    outtextxy(250,110,(mode==classic?"ÈË»ú¶ÔÕ½":(mode==AI?" AI ¶ÔÕ½":"µ¥»ú¶ÔÕ½")));
+    outtextxy(250,110,(mode==classic?"äººæœºå¯¹æˆ˜":(mode==AI?" AI å¯¹æˆ˜":"å•æœºå¯¹æˆ˜")));
     rectangle(70,170,630,730);
     line(700,0,700,800);
     for(int i=210;i<=710;i+=40){
@@ -40,13 +40,13 @@ int main(){
     line(700,400,900,400);
     settextstyle(30,15,"msyh");
     roundrect(750,240,850,300,30,30);
-    outtextxy(770,256,"ÈÏÊä");
+    outtextxy(770,256,"è®¤è¾“");
     roundrect(750,330,850,390,30,30);
-    outtextxy(770,347,"¹Ø±Õ");
+    outtextxy(770,347,"å…³é—­");
     roundrect(750,420,850,480,30,30);
-    outtextxy(770,438,"ÈÃ²½");
+    outtextxy(770,438,"è®©æ­¥");
     roundrect(750,510,850,570,30,30);
-    outtextxy(770,528,"ÇåÆÁ");
+    outtextxy(770,528,"æ¸…å±");
     roundrect(720,30,880,200,50,50);
     fillrectangle(750,25,850,35);
     fillcircle(800,75,20);
@@ -80,7 +80,7 @@ int main(){
                     goto code1;
                 }
                 if(g(p.x/40,p.y/40,1)){
-                    MessageBox(GetHWnd(),"ºÚ·½Ê¤Àû£¡","ÓÎÏ·½áÊø",MB_OK);
+                    MessageBox(GetHWnd(),"é»‘æ–¹èƒœåˆ©ï¼","æ¸¸æˆç»“æŸ",MB_OK);
                     goto code;
                 }
                 hh=1;
@@ -90,12 +90,12 @@ int main(){
                 f=1;
                 hh=!hh;
             }else if(p.x>=750&&p.x<=850&&p.y>=330&&p.y<=390){
-                if(MessageBox(GetHWnd(),"È·¶¨Òª¹Ø±Õ³ÌĞòÂğ£¿½«²»±£´æÈÎºÎÊı¾İ","¹Ø±Õ",MB_OKCANCEL|MB_ICONQUESTION)==1){
+                if(MessageBox(GetHWnd(),"ç¡®å®šè¦å…³é—­ç¨‹åºå—ï¼Ÿå°†ä¸ä¿å­˜ä»»ä½•æ•°æ®","å…³é—­",MB_OKCANCEL|MB_ICONQUESTION)==1){
                     return 0;
                 }
             }else if(p.x>=750&&p.x<=850&&p.y>=240&&p.y<=300){
-                if(MessageBox(GetHWnd(),"È·¶¨ÒªÈÏÊäÂğ£¿","¹Ø±Õ",MB_OKCANCEL|MB_ICONQUESTION)==1){
-                    MessageBox(GetHWnd(),(hh?"ºÚ·½Ê¤Àû£¡":"°×·½Ê¤Àû£¡"),"ÓÎÏ·½áÊø",MB_OK);
+                if(MessageBox(GetHWnd(),"ç¡®å®šè¦è®¤è¾“å—ï¼Ÿ","å…³é—­",MB_OKCANCEL|MB_ICONQUESTION)==1){
+                    MessageBox(GetHWnd(),(hh?"é»‘æ–¹èƒœåˆ©ï¼":"ç™½æ–¹èƒœåˆ©ï¼"),"æ¸¸æˆç»“æŸ",MB_OK);
                     goto code;
                 }
             }
@@ -114,7 +114,7 @@ int main(){
                     goto code1;
                 }
                 if(g(p.x/40,p.y/40,0)){
-                    MessageBox(GetHWnd(),"°×·½Ê¤Àû£¡","ÓÎÏ·½áÊø",MB_OK);
+                    MessageBox(GetHWnd(),"ç™½æ–¹èƒœåˆ©ï¼","æ¸¸æˆç»“æŸ",MB_OK);
                     goto code;
                 }
                 hh=0;
@@ -124,7 +124,7 @@ int main(){
         fillrectangle(750,25,850,35);
         fillcircle(800,75,20);
         setfillcolor(WHITE);
-        outtextxy(740,120,(!hh?(mode==single?"ºÚ·½»ØºÏ":"Íæ¼Ò»ØºÏ"):(mode==classic?"³ÌĞò»ØºÏ":(mode==single?"°×·½»ØºÏ":" AI »ØºÏ"))));
+        outtextxy(740,120,(!hh?(mode==single?"é»‘æ–¹å›åˆ":"ç©å®¶å›åˆ"):(mode==classic?"ç¨‹åºå›åˆ":(mode==single?"ç™½æ–¹å›åˆ":" AI å›åˆ"))));
         if(f&&mode!=single){
             hh=0;
             xyt=bigwhite();
@@ -132,7 +132,7 @@ int main(){
             setfillcolor(WHITE);
             fillcircle(xyt.x*40+70,xyt.y*40+170,18);
             if(g(p.x/40,p.y/40,0)){
-                MessageBox(GetHWnd(),"°×·½Ê¤Àû£¡","ÓÎÏ·½áÊø",MB_OK);
+                MessageBox(GetHWnd(),"ç™½æ–¹èƒœåˆ©ï¼","æ¸¸æˆç»“æŸ",MB_OK);
                 goto code;
             }
         }
@@ -163,10 +163,10 @@ xy bigwhite(){
                 }
             }
             if(!flag){
-                MessageBox(GetHWnd(),"µ÷ÓÃAIµÄ¹ı³ÌÖĞ³öÏÖÁË´íÎó£¬½«ÇĞ»»ÖÁÈË»ú¶ÔÕ½Ä£Ê½\n\n´íÎóÔ­Òò£ºAIÁ¬½Ó³¬Ê±","´íÎó",MB_ICONERROR);
+                MessageBox(GetHWnd(),"è°ƒç”¨AIçš„è¿‡ç¨‹ä¸­å‡ºç°äº†é”™è¯¯ï¼Œå°†åˆ‡æ¢è‡³äººæœºå¯¹æˆ˜æ¨¡å¼\n\né”™è¯¯åŸå› ï¼šAIè¿æ¥è¶…æ—¶","é”™è¯¯",MB_ICONERROR);
                 mode=classic;
                 settextstyle(50,25,"msyh");
-                outtextxy(250,110,"ÈË»ú¶ÔÕ½");
+                outtextxy(250,110,"äººæœºå¯¹æˆ˜");
                 settextstyle(30,15,"msyh");
                 return white();
             }
@@ -179,10 +179,10 @@ xy bigwhite(){
         fout.close();
         return xy{_a-1,b-1};
     }else{
-        MessageBox(GetHWnd(),"µ÷ÓÃAIµÄ¹ı³ÌÖĞ³öÏÖÁË´íÎó£¬½«ÇĞ»»ÖÁÈË»ú¶ÔÕ½Ä£Ê½\n\n´íÎóÔ­Òò£º´«ÊäÎÄ¼şËğ»µ","´íÎó",MB_ICONERROR);
+        MessageBox(GetHWnd(),"è°ƒç”¨AIçš„è¿‡ç¨‹ä¸­å‡ºç°äº†é”™è¯¯ï¼Œå°†åˆ‡æ¢è‡³äººæœºå¯¹æˆ˜æ¨¡å¼\n\né”™è¯¯åŸå› ï¼šä¼ è¾“æ–‡ä»¶æŸå","é”™è¯¯",MB_ICONERROR);
         mode=classic;
         settextstyle(50,25,"msyh");
-        outtextxy(250,110,"ÈË»ú¶ÔÕ½");
+        outtextxy(250,110,"äººæœºå¯¹æˆ˜");
         return white();
     }
 }
@@ -195,11 +195,11 @@ void start(){
     settextstyle(120,0,"msyh");
     settextcolor(0);
     setlinecolor(0);
-    outtextxy(270,0,"Îå×ÓÆå");
-    drawb(220,660,200,"¿ªÊ¼ÓÎÏ·");
-    drawb(220,660,350,"ÓÎÏ·ÉèÖÃ");
-    drawb(220,660,500,"¹ØÓÚÓÎÏ·");
-    drawb(220,660,650,"ÍË³ö");
+    outtextxy(270,0,"äº”å­æ£‹");
+    drawb(220,660,200,"å¼€å§‹æ¸¸æˆ");
+    drawb(220,660,350,"æ¸¸æˆè®¾ç½®");
+    drawb(220,660,500,"å…³äºæ¸¸æˆ");
+    drawb(220,660,650,"é€€å‡º");
     fout.open(".apikey");
     fout<<0;
     fout.close();
@@ -260,14 +260,14 @@ void start(){
                 line(20,25,40,45);
                 line(20,25,70,25);
                 settextstyle(40,0,"msyh");
-                outtextxy(100,5,"¿ªÊ¼ÓÎÏ·-Íæ·¨Ñ¡Ôñ");
+                outtextxy(100,5,"å¼€å§‹æ¸¸æˆ-ç©æ³•é€‰æ‹©");
                 roundrect(200,120,700,240,30,30);
                 roundrect(200,300,700,420,30,30);
                 roundrect(200,480,700,600,30,30);
                 settextstyle(80,0,"msyh");
-                outtextxy(450-textwidth("ÈË»ú¶ÔÕ½")/2,140,"ÈË»ú¶ÔÕ½");
-                outtextxy(450-textwidth(" AI ¶ÔÕ½")/2,320," AI ¶ÔÕ½");
-                outtextxy(450-textwidth("µ¥»ú¶ÔÕ½")/2,500,"µ¥»ú¶ÔÕ½");
+                outtextxy(450-textwidth("äººæœºå¯¹æˆ˜")/2,140,"äººæœºå¯¹æˆ˜");
+                outtextxy(450-textwidth(" AI å¯¹æˆ˜")/2,320," AI å¯¹æˆ˜");
+                outtextxy(450-textwidth("å•æœºå¯¹æˆ˜")/2,500,"å•æœºå¯¹æˆ˜");
                 while(true){
                     if(KEY_DOWN(L_MOUSE)){
                         while(KEY_DOWN(L_MOUSE));
@@ -281,7 +281,7 @@ void start(){
                             mode=AI;
                             char c[100];
                             int key;
-                            if(InputBox(c,100,"ÇëÊäÈëDeepseek API key:","key",NULL,0,0,0)){
+                            if(InputBox(c,100,"è¯·è¾“å…¥Deepseek API key:","key",NULL,0,0,0)){
                                 fout.open(".apikey");
                                 fout<<c;
                                 fout.close();
@@ -302,13 +302,13 @@ void start(){
                                 }
                                 cout<<key;
                                 if(key==1){
-                                    MessageBox(GetHWnd(),"ÄúµÄÃÜÔ¿ÎŞĞ§»òÎ´ÊÚÈ¨","´íÎó",MB_ICONERROR);
+                                    MessageBox(GetHWnd(),"æ‚¨çš„å¯†é’¥æ— æ•ˆæˆ–æœªæˆæƒ","é”™è¯¯",MB_ICONERROR);
                                 }else if(key==2){
-                                    MessageBox(GetHWnd(),"ÍøÂçÁ¬½Ó´íÎó","´íÎó",MB_ICONERROR);
+                                    MessageBox(GetHWnd(),"ç½‘ç»œè¿æ¥é”™è¯¯","é”™è¯¯",MB_ICONERROR);
                                 }else if(key==3){
-                                    MessageBox(GetHWnd(),"·şÎñÆ÷´íÎó","´íÎó",MB_ICONERROR);
+                                    MessageBox(GetHWnd(),"æœåŠ¡å™¨é”™è¯¯","é”™è¯¯",MB_ICONERROR);
                                 }else if(key==4){
-                                    MessageBox(GetHWnd(),"ÆäËü´íÎó","´íÎó",MB_ICONERROR);
+                                    MessageBox(GetHWnd(),"å…¶å®ƒé”™è¯¯","é”™è¯¯",MB_ICONERROR);
                                 }else if(key==0){
                                     return ;
                                 }
@@ -322,7 +322,7 @@ void start(){
                 }
             }else if(p.y>=300&&p.y<=400&&p.x>=270&&p.x<=610){
             }else if(p.y>=450&&p.y<=550&&p.x>=270&&p.x<=610){
-                MessageBox(GetHWnd(),"Îå×ÓÆå\n\n°æ±¾£º1.0\n¸üĞÂÈÕÆÚ£º2025-08\n×÷Õß:Wzh\nÁªÏµÓÊÏä£ºwzh_2011@139.com\nGitHubÏîÄ¿µØÖ·£ºhttps://github.com/Ball-aabb/Gobang","¹ØÓÚÓÎÏ·",MB_ICONINFORMATION);
+                MessageBox(GetHWnd(),"äº”å­æ£‹\n\nç‰ˆæœ¬ï¼šbeat-250821\næ›´æ–°æ—¥æœŸï¼š2025-08\nä½œè€…:Wzh\nè”ç³»é‚®ç®±ï¼šwzh_2011@139.com\nGitHubé¡¹ç›®åœ°å€ï¼šhttps://github.com/Ball-aabb/Gobang","å…³äºæ¸¸æˆ",MB_ICONINFORMATION);
             }else if(p.y>=600&&p.y<=700&&p.x>=270&&p.x<=610){
                 exit(0);
             }
@@ -569,4 +569,5 @@ void kill(){
     s="taskkill /pid "+s+" /f";
     system(s.c_str());
 }
-// \n\nºóÆÚ¸üĞÂ¼Æ»®£¨¸ù¾İÓÅÏÈ¼¶ÅÅĞò£©£º\n\t1.¼ÓÈëÈıÈËÄ£Ê½\n\t2.¼ÓÈëÁª»úÄ£Ê½(½öÍ¬Ò»¾ÖÓòÍø)\n\t3.¼ÓÈë¡°ÕËºÅ¡±£¬±£´æÀúÊ·¼ÇÂ¼£¬·ÖÎªÔÆ¶ËºÍ±¾µØÁ½ÖÖ\n\n³ı¡°ÈË»ú¶ÔÕ½¡±Íæ·¨ÖĞ³ÌĞò´úÂëÓÉDeepSeekÉú³É£¬ÆäÓà´úÂë¾ùÓÉ×÷Õß±¾ÈËÍê³É£¬ÍûÖ§³Ö(¡¨'¨Œ'¡¨)
+
+// \n\nåæœŸæ›´æ–°è®¡åˆ’ï¼ˆæ ¹æ®ä¼˜å…ˆçº§æ’åºï¼‰ï¼š\n\t1.åŠ å…¥ä¸‰äººæ¨¡å¼\n\t2.åŠ å…¥è”æœºæ¨¡å¼(ä»…åŒä¸€å±€åŸŸç½‘)\n\t3.åŠ å…¥â€œè´¦å·â€ï¼Œä¿å­˜å†å²è®°å½•ï¼Œåˆ†ä¸ºäº‘ç«¯å’Œæœ¬åœ°ä¸¤ç§\n\né™¤â€œäººæœºå¯¹æˆ˜â€ç©æ³•ä¸­ç¨‹åºä»£ç ç”±DeepSeekç”Ÿæˆï¼Œå…¶ä½™ä»£ç å‡ç”±ä½œè€…æœ¬äººå®Œæˆï¼Œæœ›æ”¯æŒ(ã€ƒ'â–½'ã€ƒ)
