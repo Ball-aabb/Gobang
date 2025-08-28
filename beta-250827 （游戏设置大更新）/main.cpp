@@ -12,8 +12,6 @@ int a[15][15],f,wx,wy,hh,ohh,mode,time1,time2,time3=30,PID,s1=1,bkcolor,textcolo
 char c[30];
 bool g(int x,int y,int t);
 POINT p;
-ofstream fout;
-ifstream fin;
 string st;
 vector<xy> cc;
 vector<int> cci;
@@ -102,14 +100,6 @@ int main(){
                     cci.push_back(1);
                     setfillcolor(BLACK);
                     fillcircle(p.x/40*40+70,p.y/40*40+170,18);
-                    if(mode==AI){
-                        fout.open(".in_state");
-                        fout<<"1 1";
-                        fout.close();
-                        fout.open(".in");
-                        fout<<(p.y/40+1)<<' '<<(p.x/40+1);
-                        fout.close();
-                    }
                 }else{
                     f=0;
                     goto code1;
@@ -237,61 +227,16 @@ int main(){
             setfillcolor(RED);
             solidcircle(cc.back().x*40+70,cc.back().y*40+170,5);
             if(cc.size()>1){
-                //cout<<"sb"<<cci[cci.size()-2];
                 setfillcolor(cci[cci.size()-2]?0:WHITE);
                 solidcircle(cc[cc.size()-2].x*40+70,cc[cc.size()-2].y*40+170,5);
             }
-            //cout<<cc.back().x<<cc.back().y<<endl;
         }
         Sleep(25);
     }
     getch();
 }
 xy bigwhite(){
-    if(mode==classic){
-        return white();
-    }
-    int _a,b;
-    fin.open(".out_state");
-    if(fin.is_open()){
-        Sleep(400);
-        fin>>_a;
-        fin.close();
-        if(!_a){
-            int flag=0;
-            for(int i=1;i<=48;i++){
-                Sleep(200);
-                fin.open(".out_state");
-                fin>>_a;
-                fin.close();
-                if(_a){
-                    flag=1;
-                    break;
-                }
-            }
-            if(!flag){
-                MessageBox(GetHWnd(),"调用AI的过程中出现了错误，将切换至人机对战模式\n\n错误原因：AI连接超时","错误",MB_ICONERROR);
-                mode=classic;
-                settextstyle(50,25,"msyh");
-                outtextxy(250,110,"人机对战");
-                settextstyle(30,15,"msyh");
-                return white();
-            }
-        }
-        fin.open(".out");
-        fin>>_a>>b;
-        fin.close();
-        fout.open(".out_state");
-        fout<<"0";
-        fout.close();
-        return xy{_a-1,b-1};
-    }else{
-        MessageBox(GetHWnd(),"调用AI的过程中出现了错误，将切换至人机对战模式\n\n错误原因：传输文件损坏","错误",MB_ICONERROR);
-        mode=classic;
-        settextstyle(50,25,"msyh");
-        outtextxy(250,110,"人机对战");
-        return white();
-    }
+    return white();
 }
 void start(){
     int ttt=0;
@@ -389,40 +334,6 @@ void start(){
                             return ;
                         }else if(p.x>=200&&p.x<=700&&p.y>=480&&p.y<=600){
                             MessageBox(GetHWnd()," AI 对战玩法正在开发中，暂缓开放，敬请谅解。"," AI 对战",MB_ICONINFORMATION);
-                            /*mode=AI;
-                            int key;
-                            if(InputBox(c,100,"请输入Deepseek key:\n\n(输入后需等待若干秒检测key)","key",NULL,0,0,0)){
-                                fout.open(".apikey");
-                                fout<<c;
-                                fout.close();
-                                fout.open(".key_state");
-                                fout<<"999 999";
-                                fout.close();
-                                fin.open(".key_state");
-                                if(fin.is_open()){
-                                    Sleep(300);
-                                    fin>>key;
-                                    fin.close();
-                                    while(key==999){
-                                        fin.open(".key_state");
-                                        fin>>key;
-                                        fin.close();
-                                        Sleep(200);
-                                    }
-                                }
-                                if(key==1){
-                                    MessageBox(GetHWnd(),"密钥无效!","错误",MB_ICONERROR);
-                                }else if(key==2){
-                                    MessageBox(GetHWnd(),"网络连接错误!","错误",MB_ICONERROR);
-                                }else if(key==3){
-                                    MessageBox(GetHWnd(),"服务器错误!","错误",MB_ICONERROR);
-                                }else if(key==4){
-                                    MessageBox(GetHWnd(),"其它错误!","错误",MB_ICONERROR);
-                                }else if(key==0){
-                                    return ;
-                                }
-                                //runexe();
-                            }*/
                         }
                     }
                 }
@@ -478,8 +389,8 @@ void start(){
                                 t=atoi(c);
                                 if(t<0||t>=colorn){
                                     MessageBox(GetHWnd(),"颜色不存在！","错误",MB_ICONERROR);
-                                }else if(t==lci||t==tci){
-                                    MessageBox(GetHWnd(),"背景不能与线条或文字同色！","错误",MB_ICONERROR);
+                                }else if(t==lci||t==tci||t==timeci){
+                                    MessageBox(GetHWnd(),"背景不能与线条或文字或倒计时进度条同色！","错误",MB_ICONERROR);
                                 }else{
                                     bkci=t;
                                     refresh();
@@ -796,22 +707,3 @@ void judges1(){
         fillrectangle(805,290,835,320);
     }
 }
-/*void runexe(){
-    SHELLEXECUTEINFO sei = { sizeof(sei) };
-    sei.fMask = SEE_MASK_NOCLOSEPROCESS;
-    sei.lpVerb = "open";
-    sei.lpFile = "ai.exe";
-    sei.nShow = SW_HIDE;
-    if(ShellExecuteEx(&sei)){
-        cout<< "OK!" << endl;
-        CloseHandle(sei.hProcess);
-    } else {
-        cout<<"Failed to start process: " << GetLastError() << endl;
-    }
-}
-void kill(){
-    itoa(PID,c,10);
-    st=c;
-    st="taskkill /pid "+s+" /f";
-    system(st.c_str());
-}*/
