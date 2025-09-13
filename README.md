@@ -20,4 +20,4 @@ CLion、Dev-C++ 或 Code::Blocks: https://codebus.cn/bestans/easyx-for-mingw
 
 由于已经开学了（不嘻嘻），所以更新频率将大幅下降。
 
-预计国庆假期可能会更新
+一般每周末都会维护，将于预计国庆假期更新
