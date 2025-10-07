@@ -39,7 +39,6 @@ void _setbkcolor(rgbc color){
 
 /*针对win11的sb新版命令提示符会自动弹出的问题（以前版本都不会），
 特地借助ds之力编写了以下2个函数以在程序运行时关闭命令提示符窗口*/
-
 std::string st = "\\main";
 bool windowHidden = false;
 BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
