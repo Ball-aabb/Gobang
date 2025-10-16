@@ -2,7 +2,7 @@
 #define classic 0
 #define single 1
 #define AI 2
-#define ver "beta-251006"
+#define ver "beta-251012"
 using namespace std;
 struct xy{
     int x;
