@@ -384,7 +384,7 @@ void start(){
                 }
             }else if(p.y>=300&&p.y<=400&&p.x>=270&&p.x<=610){
             }else if(p.y>=450&&p.y<=550&&p.x>=270&&p.x<=610){
-                MessageBox(GetHWnd(),"五子棋\n\n作者:Wzh\n联系邮箱：wzh_2011@139.com\nGitHub项目地址：https://github.com/Ball-aabb/Gobang\n\n更多内容，详见GitHub","关于游戏",MB_ICONINFORMATION);
+                MessageBox(GetHWnd(),"五子棋\n\n版本:beta-250825\n作者:Wzh\n联系邮箱：wzh_2011@139.com\nGitHub项目地址：https://github.com/Ball-aabb/Gobang\n\n更多内容，详见GitHub","关于游戏",MB_ICONINFORMATION);
             }else if(p.y>=600&&p.y<=700&&p.x>=270&&p.x<=610){
                 exit(0);
             }
