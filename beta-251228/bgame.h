@@ -1,7 +1,7 @@
 #ifndef BGAME_H
 #define BGAME_H
 
-//å¸¸ç”¨å¤´æ–‡ä»¶
+//³£ÓÃÍ·ÎÄ¼ş
 #include<iostream>
 #include<fstream>
 #include<string>
@@ -13,30 +13,30 @@
 #include<windows.h>
 #include<sstream>
 
-//ç¼©å†™
+//ËõĞ´
 #define cleard() cleardevice()
 #define rgbc COLORREF
 #define L_MOUSE KEY_DOWN(VK_LBUTTON)
 #define R_MOUSE KEY_DOWN(VK_RBUTTON)
-//å°†çª—å£ç§»åŠ¨åˆ°å±å¹•æ­£ä¸­å¤®
+//½«´°¿ÚÒÆ¶¯µ½ÆÁÄ»ÕıÖĞÑë
 #define move_window() MoveWindow(GetHWnd(),(GetSystemMetrics(SM_CXFULLSCREEN)-getwidth())/2,(GetSystemMetrics(SM_CYFULLSCREEN)-getheight())/2,getwidth(),getheight(),1)
-//æŒ‰é”®æ£€æµ‹å¿…å¤‡
+//°´¼ü¼ì²â±Ø±¸
 #define KEY_DOWN(VK_NONAME) ((GetAsyncKeyState(VK_NONAME)&0x8000)?1:0)&&(GetForegroundWindow()==GetHWnd()) 
 
-//è·å–é’ˆå¯¹å½“å‰çª—å£çš„é¼ æ ‡æŒ‡é’ˆ
+//»ñÈ¡Õë¶Ôµ±Ç°´°¿ÚµÄÊó±êÖ¸Õë
 void getmouse(LPPOINT lpPoint){
     GetCursorPos(lpPoint);
     ScreenToClient(GetHWnd(),lpPoint);
 }
 
-//æ”¹èƒŒæ™¯é¢œè‰²ï¼ˆå› ä¸ºæ”¹å®Œè¦æ¸…å±ï¼Œè¿™é‡ŒæŠŠä¸¤ä¸ªå‡½æ•°åŠ åˆ°äº†ä¸€èµ·ï¼‰
+//¸Ä±³¾°ÑÕÉ«£¨ÒòÎª¸ÄÍêÒªÇåÆÁ£¬ÕâÀï°ÑÁ½¸öº¯Êı¼Óµ½ÁËÒ»Æğ£©
 void _setbkcolor(rgbc color){
     setbkcolor(color);
     cleard();
 }
 
-/*é’ˆå¯¹win11çš„sbæ–°ç‰ˆå‘½ä»¤æç¤ºç¬¦ä¼šè‡ªåŠ¨å¼¹å‡ºçš„é—®é¢˜ï¼ˆä»¥å‰ç‰ˆæœ¬éƒ½ä¸ä¼šï¼‰ï¼Œ
-ç‰¹åœ°å€ŸåŠ©ç¼–å†™äº†ä»¥ä¸‹2ä¸ªå‡½æ•°ä»¥åœ¨ç¨‹åºè¿è¡Œæ—¶å…³é—­å‘½ä»¤æç¤ºç¬¦çª—å£*/
+/*Õë¶Ôwin11µÄsbĞÂ°æÃüÁîÌáÊ¾·û»á×Ô¶¯µ¯³öµÄÎÊÌâ£¨ÒÔÇ°°æ±¾¶¼²»»á£©£¬
+ÌØµØ½èÖú±àĞ´ÁËÒÔÏÂ2¸öº¯ÊıÒÔÔÚ³ÌĞòÔËĞĞÊ±¹Ø±ÕÃüÁîÌáÊ¾·û´°¿Ú*/
 std::string st = "\\main";
 bool windowHidden = false;
 BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
@@ -59,7 +59,7 @@ bool HideWindowByPartialTitle(const std::string& partialTitle = "\\main") {
     return windowHidden;
 }
 
-//AIæ¨¡å¼ä¸­æ£€æµ‹deepseek api keyæ˜¯å¦æœ‰æ•ˆï¼ˆdeepseekç”Ÿæˆï¼‰
+//AIÄ£Ê½ÖĞ¼ì²âdeepseek api keyÊÇ·ñÓĞĞ§£¨deepseekÉú³É£©
 bool check_key(std::string apikey) {
     std::string command = "curl -s -X GET \"https://api.deepseek.com/user/balance\" "
                           "-H \"Accept: application/json\" "
@@ -83,7 +83,7 @@ bool check_key(std::string apikey) {
     return result == "200";
 }
 
-// GB2312 è½¬ UTF-8 ç¼–ç è½¬æ¢å‡½æ•°
+// GB2312 ×ª UTF-8 ±àÂë×ª»»º¯Êı
 std::string gb2312_to_utf8(const std::string& gb2312_str) {
     if (gb2312_str.empty()) return "";
     int len = MultiByteToWideChar(CP_ACP, 0, gb2312_str.c_str(), -1, NULL, 0);
@@ -103,7 +103,7 @@ std::string gb2312_to_utf8(const std::string& gb2312_str) {
     return result;
 }
 
-// JSONè½¬ä¹‰å‡½æ•°
+// JSON×ªÒåº¯Êı
 std::string json_escape(const std::string& str) {
     std::string result;
     result.reserve(str.length() * 2);
@@ -130,24 +130,24 @@ std::string json_escape(const std::string& str) {
     return result;
 }
 
-//AIæ¨¡å¼ä¸­ä¸deepseek apiå¯¹è¯ï¼ˆdeepseekç”Ÿæˆï¼‰
+//AIÄ£Ê½ÖĞÓëdeepseek api¶Ô»°£¨deepseekÉú³É£©
 std::string call_ai(std::string key, std::string content) {
-    // 1. ç¼–ç è½¬æ¢ï¼šGB2312 -> UTF-8
+    // 1. ±àÂë×ª»»£ºGB2312 -> UTF-8
     std::string utf8_content = gb2312_to_utf8(content);
-    // 2. JSONè½¬ä¹‰
+    // 2. JSON×ªÒå
     std::string escaped_content = json_escape(utf8_content);
-    // 3. æ„å»ºJSONè¯·æ±‚
+    // 3. ¹¹½¨JSONÇëÇó
     std::string json_data = "{\"model\":\"deepseek-chat\",\"messages\":[{\"role\":\"user\",\"content\":\"" + 
                             escaped_content + "\"}],\"stream\":false,\"max_tokens\":2048}";
-    // 4. ä¿å­˜åˆ°ä¸´æ—¶æ–‡ä»¶
+    // 4. ±£´æµ½ÁÙÊ±ÎÄ¼ş
     std::string temp_file = "request.json";
     std::ofstream file(temp_file, std::ios::binary);
     if (!file) {
-        return "E1æ— æ³•åˆ›å»ºä¸´æ—¶æ–‡ä»¶";
+        return "E1ÎŞ·¨´´½¨ÁÙÊ±ÎÄ¼ş";
     }
     file.write(json_data.c_str(), json_data.length());
     file.close();
-    // 5. æ‰§è¡Œcurlå‘½ä»¤
+    // 5. Ö´ĞĞcurlÃüÁî
     std::string command = "curl -s -X POST "
                           "https://api.deepseek.com/v1/chat/completions "
                           "-H \"Content-Type: application/json\" "
@@ -159,18 +159,18 @@ std::string call_ai(std::string key, std::string content) {
     FILE* pipe = _popen(command.c_str(), "r");
     if (!pipe) {
         remove(temp_file.c_str());
-        return "E2æ— æ³•æ‰§è¡Œcurlå‘½ä»¤";
+        return "E2ÎŞ·¨Ö´ĞĞcurlÃüÁî";
     }
     while (fgets(buffer, sizeof(buffer), pipe) != nullptr) {
         result += buffer;
     }
     _pclose(pipe);
     remove(temp_file.c_str());
-    // 6. å¤„ç†å“åº”
+    // 6. ´¦ÀíÏìÓ¦
     if (result.empty()) {
-        return "E3APIè¿”å›ç©ºå“åº”";
+        return "E3API·µ»Ø¿ÕÏìÓ¦";
     }
-    // 7. è§£æå“åº”
+    // 7. ½âÎöÏìÓ¦
     size_t content_start = result.find("\"content\":\"");
     if (content_start == std::string::npos) {
         size_t error_start = result.find("\"message\":\"");
@@ -178,10 +178,10 @@ std::string call_ai(std::string key, std::string content) {
             error_start += 11;
             size_t error_end = result.find("\"", error_start);
             if (error_end != std::string::npos) {
-                return "E4APIé”™è¯¯: " + result.substr(error_start, error_end - error_start);
+                return "E4API´íÎó: " + result.substr(error_start, error_end - error_start);
             }
         }
-        return "E5APIå“åº”æ ¼å¼é”™è¯¯";
+        return "E5APIÏìÓ¦¸ñÊ½´íÎó";
     }
     content_start += 11;
     size_t content_end = content_start;
@@ -192,7 +192,7 @@ std::string call_ai(std::string key, std::string content) {
         content_end++;
     }
     std::string ai_content = result.substr(content_start, content_end - content_start);
-    // è§£ç è½¬ä¹‰å­—ç¬¦
+    // ½âÂë×ªÒå×Ö·û
     std::string decoded;
     for (size_t i = 0; i < ai_content.length(); ++i) {
         if (ai_content[i] == '\\' && i + 1 < ai_content.length()) {
@@ -211,5 +211,5 @@ std::string call_ai(std::string key, std::string content) {
     return decoded;
 }
 
-//å®Œç»“æ’’èŠ±
+//Íê½áÈö»¨
 #endif
