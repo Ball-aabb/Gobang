@@ -32,9 +32,13 @@
 
 本项目*main.cpp*使用GB-2312编码，*bgame.h*使用UTF-8编码。至少使用c++11标准和8.1.0及以上的g++.exe
 
-*参考g++版本：g++.exe (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 8.1.0*
+参考g++版本
 
-*参考编译命令（不同版本某些选项可能不需要，文件名及路径请自行修改）：g++.exe -std=c++11 -static -static-libgcc -static-libstdc++ -pthread main.cpp -o main.exe -leasyx -Wl,--whole-archive -lpthread -Wl,--no-whole-archive*
+    g++.exe (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 8.1.0
+
+参考编译命令（不同版本某些选项可能不需要，文件名及路径请自行修改）
+
+    g++.exe -std=c++11 -static -static-libgcc -static-libstdc++ -pthread main.cpp -o main.exe -leasyx -Wl,--whole-archive -lpthread -Wl,--no-whole-archive
 
 **开发版说明**
 
