@@ -2,7 +2,7 @@
 #define classic 0
 #define single 1
 #define AI 2
-#define ver "beta-260503"
+#define ver "beta-260515"
 using namespace std;
 struct xy{
     int x;
@@ -40,13 +40,13 @@ int main(){
     setlinecolor(linecolor);
     settextcolor(textcolor);
     setfillcolor(0);
-    settextstyle(100,50,"msyh");
+    settextstyle(100,0,"黑体");
     outtextxy(200,0,"五子棋");
-    settextstyle(50,25,"msyh");
+    settextstyle(50,25,"楷体");
     outtextxy(250,110,(mode==classic?"人机对战":(mode==AI?" AI 对战":"单机对战")));
     rectangle(70,170,630,730);
     line(700,0,700,800);
-    settextstyle(30,0,"msyh");
+    settextstyle(30,0,"Consolas");
     outtextxy(55,155,"1");
     outtextxy(40,715,"15");
     outtextxy(67,735,"1");
@@ -73,7 +73,7 @@ int main(){
     solidrectangle(185,605,195,615);
     solidrectangle(505,605,515,615);
     line(700,420,900,420);
-    settextstyle(30,0,"msyh");
+    settextstyle(30,0,"楷体");
     setbkmode(TRANSPARENT);
     roundrect(750,180,850,240,30,30);
     outtextxy(770,196,"暂停 (P)");
@@ -303,16 +303,16 @@ void start(){
     code_s:
     int ttt=0;
     refresh();
-    settextstyle(120,0,"msyh");
-    outtextxy(270,0,"五子棋");
+    settextstyle(120,0,"黑体");
+    outtextxy(260,0,"五子棋");
     drawb(220,660,200,"开始游戏");
     drawb(220,660,350,"游戏设置");
     drawb(220,660,500,"游戏帮助");
     drawb(220,660,650,"退出");
     rectangle(40,25,220,85);
-    settextstyle(40,0,"msyh");
-    outtextxy(50,35,"游戏记录");
-    settextstyle(30,0,"msyh");
+    settextstyle(40,0,"等线");
+    outtextxy(57,35,"游戏记录");
+    settextstyle(30,0,"Courier");
     outtextxy(450-textwidth(ver)/2,120,ver);
     setlinecolor(RED);
     while(true){
@@ -345,12 +345,12 @@ void start(){
                 line(20,25,40,5);
                 line(20,25,40,45);
                 line(20,25,70,25);
-                settextstyle(40,0,"msyh");
-                outtextxy(100,5,"开始游戏-玩法选择");
+                settextstyle(40,0,"楷体");
+                outtextxy(100,5,"开始游戏");
                 roundrect(200,120,700,240,30,30);
                 roundrect(200,300,700,420,30,30);
                 roundrect(200,480,700,600,30,30);
-                settextstyle(80,0,"msyh");
+                settextstyle(80,0,"黑体");
                 outtextxy(450-textwidth("人机对战")/2,140,"人机对战");
                 outtextxy(450-textwidth("单机对战")/2,320,"单机对战");
                 outtextxy(450-textwidth(" AI 对战")/2,500," AI 对战");
@@ -405,7 +405,7 @@ void start(){
                 line(20,25,40,5);
                 line(20,25,40,45);
                 line(20,25,70,25);
-                settextstyle(40,0,"msyh");
+                settextstyle(40,0,"楷体");
                 outtextxy(100,5,"游戏设置");
                 outtextxy(50,100,"背景颜色");
                 line(50,150,850,150);
@@ -434,7 +434,7 @@ void start(){
                 outtextxy(50,520,"AI模式默认密钥");
                 line(50,570,850,570);
                 rectangle(760,525,840,565);
-                settextstyle(35,0,"msyh");
+                settextstyle(35,0,"等线");
                 outtextxy(765,347,"更改");
                 outtextxy(765,527,"更改");
                 outtextxy(595,596,"恢复自定义设置");
@@ -563,10 +563,10 @@ void start(){
                 line(20,25,70,25);
                 roundrect(200,120,700,240,30,30);
                 roundrect(200,300,700,420,30,30);
-                settextstyle(40,0,"msyh");
+                settextstyle(40,0,"楷体");
                 outtextxy(100,5,"游戏帮助");
-                outtextxy(450-textwidth("（此页面持续更新中）")/2,500,"（此页面持续更新中）");
-                settextstyle(70,0,"msyh");
+                //outtextxy(450-textwidth("（此页面持续更新中）")/2,500,"（此页面持续更新中）");
+                settextstyle(70,0,"黑体");
                 outtextxy(450-textwidth("玩法介绍")/2,140,"玩法介绍");
                 outtextxy(450-textwidth("关于游戏")/2,320,"关于游戏");
                 while(true){
@@ -827,9 +827,9 @@ xy white(){
             st2+="\n\n将自动切换至经典模式。";
             MessageBox(GetHWnd(),st2.c_str(),"错误",MB_OK|MB_ICONERROR);
             mode=classic;
-            settextstyle(50,25,"msyh");
+            settextstyle(50,25,"楷体");
             outtextxy(250,110,"人机对战");
-            settextstyle(30,0,"msyh");
+            settextstyle(30,0,"楷体");
             goto white_classic;
         }
         stringstream ss(_st);
@@ -931,7 +931,7 @@ void drawb(int lx,int rx,int y,string str){
     line(lx+65,y+50,lx+15,y);
     line(rx-65,y-50,rx-15,y);
     line(rx-65,y+50,rx-15,y);
-    settextstyle(60,0,"msyh");
+    settextstyle(60,0,"楷体");
     outtextxy((rx+lx-textwidth(str.c_str()))/2,y-30,str.c_str());
 }
 void sfill(int t){
